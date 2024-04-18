@@ -64,7 +64,7 @@
             <h3>Product 1</h3>
             <p>$20</p>
         </div>
-        <button>Add to Cart</button>
+        <button onclick="addToCart('Product 1', 20)">Add to Cart</button>
     </div>
     <div class="product">
         <img src="product2.jpg" alt="Product 2">
@@ -72,21 +72,50 @@
             <h3>Product 2</h3>
             <p>$25</p>
         </div>
-        <button>Add to Cart</button>
+        <button onclick="addToCart('Product 2', 25)">Add to Cart</button>
     </div>
 </div>
 
 <div class="container" style="background-color: #f9f9f9;">
-    <h2>About Us</h2>
-    <p>We are a trendy clothing company that sells high-quality, stylish clothing for all ages. Our mission is to provide fashionable and comfortable clothing at affordable prices.</p>
+    <h2>Checkout</h2>
+    <ul id="cartList"></ul>
+    <p id="totalPrice">Total Price: $0</p>
+    <button onclick="checkout()">Checkout</button>
 </div>
 
 <script>
-    function changeColor() {
-        var aboutSection = document.querySelector('.container');
-        aboutSection.style.backgroundColor = '#ffc0cb'; // Change to pink color
+    let cart = [];
+    
+    function addToCart(product, price) {
+        cart.push({ product, price });
+        updateCartList();
+        updateTotalPrice();
+    }
+
+    function updateCartList() {
+        const cartList = document.getElementById('cartList');
+        cartList.innerHTML = '';
+        cart.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = `${item.product} - $${item.price}`;
+            cartList.appendChild(li);
+        });
+    }
+
+    function updateTotalPrice() {
+        const totalPrice = document.getElementById('totalPrice');
+        const total = cart.reduce((acc, item) => acc + item.price, 0);
+        totalPrice.textContent = `Total Price: $${total}`;
+    }
+
+    function checkout() {
+        alert('Order placed! Thank you for shopping with us.');
+        cart = [];
+        updateCartList();
+        updateTotalPrice();
     }
 </script>
 
 </body>
 </html>
+
