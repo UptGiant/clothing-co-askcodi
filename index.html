@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clothing Company</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 0 20px;
+    }
+    h1, h2 {
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Clothing Company</h1>
+</header>
+
+<div class="container">
+    <h2>Home</h2>
+    <p>Welcome to our clothing company website. Check out our latest collection!</p>
+</div>
+
+<div class="container" style="background-color: #f9f9f9;">
+    <h2>About Us</h2>
+    <p>We are a trendy clothing company that sells high-quality, stylish clothing for all ages. Our mission is to provide fashionable and comfortable clothing at affordable prices.</p>
+    <button onclick="changeColor()">Change Color</button>
+</div>
+
+<script>
+    function changeColor() {
+        var aboutSection = document.querySelector('.container');
+        aboutSection.style.backgroundColor = '#ffc0cb'; // Change to pink color
+    }
+</script>
+
+</body>
+</html>
